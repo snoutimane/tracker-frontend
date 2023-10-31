@@ -1,0 +1,49 @@
+/* Set the background image for the entire body */
+body.background-image {
+    background-image: url('src/assets/bgImage-Login.jpg'); /* Update the path to your background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* This keeps the background fixed while scrolling */
+    margin: 0;
+    padding: 0;
+  }
+  .text-danger {
+    color: red;
+  }
+  /* Style the login card */
+  .login-card {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.372); /* Semi-transparent white background */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Style the mat-card-title */
+  mat-card-title {
+    text-align: center;
+    font-size: 24px;
+    padding: 20px 0;
+  }
+
+  /* Style the mat-form-field */
+  mat-form-field {
+    width: 100%;
+  }
+
+  /* Style the input fields within mat-form-field */
+  input.mat-input-element {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  /* Style the mat-raised-button */
+  button.mat-raised-button {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+ 
