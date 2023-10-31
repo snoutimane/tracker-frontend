@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-//import { Interview } from '../Models/interview';
+import { Interview } from '../Models/interview';
 import { Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -9,25 +9,25 @@ import { MatDialog } from '@angular/material/dialog';
 import { EditModalComponent } from '../edit-modal/edit-modal.component';
 
 
-interface Interview {
-  id:Number;
-  empId:Number;
-  employeeName: string;
-  email:string ;
-  projectName:string;
-  projectCode:string;
-  projectManager:string;
-  projectLocation:string;
-  interviewed:boolean;
-  interviewDate:Date;
-  feedback:string;
-  feedbackDescription:string;
-  comment:string;
-  proposedDate:Date;
-  mentorName:string;
-  image:string;
-  status:string;
-}
+// interface Interview {
+//   id:Number;
+//   empId:Number;
+//   employeeName: string;
+//   email:string ;
+//   projectName:string;
+//   projectCode:string;
+//   projectManager:string;
+//   projectLocation:string;
+//   interviewed:boolean;
+//   interviewDate:Date;
+//   feedback:string;
+//   feedbackDescription:string;
+//   comment:string;
+//   proposedDate:Date;
+//   mentorName:string;
+//   image:string;
+//   status:string;
+// }
 
 @Component({
   selector: 'app-view-candidate',
@@ -113,19 +113,19 @@ export class ViewCandidateComponent implements OnInit {
 
   deleteCandidate(candidate: any) {
     const empId = candidate.empId;
-    const projectCode = candidate.projectCode;
+    //const projectCode = candidate.projectCode;
 
     // Open the confirmation dialog
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '300px',
-      data: { message: `Are you sure you want to delete the candidate with empId ${empId} and projectCode ${projectCode}?` }
+      data: { message: `Are you sure you want to delete the candidate with empId ${empId}?` }
     });
 
     // Subscribe to the result of the confirmation dialog
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         // User clicked 'Yes', perform deletion logic here
-        this.performDeleteCandidate(empId, projectCode);
+        this.performDeleteCandidate(empId);
       } else {
         // User clicked 'No' or closed the dialog, handle accordingly
         console.log('User clicked No or closed the dialog');
@@ -133,26 +133,26 @@ export class ViewCandidateComponent implements OnInit {
     });
   }
 
-  private performDeleteCandidate(empId: string, projectCode: string) {
+  private performDeleteCandidate(empId: Number) {
     // Make an HTTP DELETE request with the correct URL
-    this.http.delete(`http://localhost:8089/interviews/delete/${empId}/${projectCode}`, { responseType: 'text' })
+    this.http.delete(`http://localhost:8089/interviews/delete/${empId}`, { responseType: 'text' })
       .subscribe(
         (response) => {
           if (response === 'Interview deleted successfully') {
             // Show a snackbar notification
-            this.snackBar.open(`Candidate with empId ${empId} and projectCode ${projectCode} deleted successfully!`, 'Close', { duration: 3000 });
+            this.snackBar.open(`Candidate with empId ${empId} deleted successfully!`, 'Close', { duration: 3000 });
 
             // Reload the current route
             this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
               this.router.navigate(['/view']);
             });
           } else {
-            console.error(`Error deleting candidate with empId ${empId} and projectCode ${projectCode}: Unexpected response`);
+            console.error(`Error deleting candidate with empId ${empId}: Unexpected response`);
             // Handle unexpected responses here
           }
         },
         (error) => {
-          console.error(`Error deleting candidate with empId ${empId} and projectCode ${projectCode}:`, error);
+          console.error(`Error deleting candidate with empId ${empId}:`, error);
           // Handle errors here
         }
       );

@@ -1,4 +1,4 @@
-<app-dashboard></app-dashboard>
+<!-- <app-dashboard></app-dashboard>
 <div class="add-candidate-container">
     <h2>Add Candidate</h2>
     <a (click)="showFileInput = true">Import excel candidate data</a>
@@ -94,7 +94,7 @@
               <img [src]="myImage" alt="image" class="show-img">
             </td>
           </tr>
-          <!-- Add validation messages here for additional fields if needed -->
+          
 
           <tr>
             <td>Selected/Rejected</td>
@@ -132,4 +132,207 @@
       <button class="add-button" type="submit" (click)="addCandidate()">Add Candidate</button> &nbsp;
       
     </form>
+</div> -->
+
+
+
+<app-dashboard></app-dashboard>
+<div class="add-candidate-container">
+    <h2>Add Candidate</h2>
+    <a (click)="showFileInput = true">Import excel candidate data</a>
+    <div *ngIf="showFileInput">
+      <input type="file" (change)="onFileChange($event)" accept=".xlsx">
+      <button (click)="uploadFile()">Upload Excel</button>
+    </div>
+    <form #candidateForm="ngForm" (ngSubmit)="validateForm()">
+      <table class="candidate-table">
+        <tr>
+          <th>Baseline Date *</th>
+          <th>Trainer Name *</th>
+          <th>Employee ID *</th>
+          <th>Employee Name *</th>
+          <th>Employee Email *</th>
+        </tr>
+        <tr>
+          <td>
+            <input type="date" [(ngModel)]="newCandidate.baselineDate" name="baselineDate" required>
+            <!-- <div *ngIf="showAlertForPastDate" class="alert alert-warning" style="color: red;">
+              Are you sure you want to select a past date?
+            </div> -->
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.mentorName" name="mentorName" required>
+          </td>
+          <td>
+            <input type="number" [(ngModel)]="newCandidate.empId" name="empId" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.employeeName" name="employeeName" required>
+          </td>
+          <td>
+            <input type="email" [(ngModel)]="newCandidate.email" name="email" required>
+          </td>
+        </tr>
+       
+        <br>
+        <br>
+        <tr>
+          <th>Local Grade *</th>
+          <th>Current Day Status *</th>
+          <th>Main Project *</th>
+          <th>Account Name *</th>
+          <th>Training Batch Id *</th>
+        </tr>
+        <tr>
+          
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.localGrade" name="localGrade" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.currentDayStatus" name="currentDayStatus" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.mainProject" name="mainProject" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.accountName" name="accountName" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.trainingBatchId" name="trainingBatchId" required>
+          </td>
+        </tr>
+        <br>
+        <br>
+        <tr>
+          <th>Training Score/feedback *</th>
+          <th>Bucket *</th>
+          <th>Qualitative feedback/Mentor feedback *</th>
+          <th>Ocean attempted till date *</th>
+          <th>Ocean Score if attempted *</th>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.trainingScoreFeedback" name="trainingScoreFeedback" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.bucket" name="bucket" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.qualitativeFeedback" name="qualitativeFeedback" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.oceanAttemptedTillDate" name="oceanAttemptedTillDate" required>
+          </td>
+          <td>
+            <input type="number" [(ngModel)]="newCandidate.oceanScoreIfAttempted" name="oceanScoreIfAttempted" required>
+          </td>
+        </tr>
+        <br>
+        <br>
+        <tr>
+          <th>HS Certification Done? *</th>
+          <th>Digi Dashboard updated Regularly? *</th>
+          <th>Any account shadows done *</th>
+          <th>Current status *</th>
+          <th>Additional upskilling while on bench *</th>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.hsCertificationDone" name="hsCertificationDone" required>
+          </td>
+          <td>
+            <input type="date" [(ngModel)]="newCandidate.digiDashboardUpdatedRegularly" name="digiDashboardUpdatedRegularly" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.accountShadowsDone" name="accountShadowsDone" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.currentStatus" name="currentStatus" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.upskillingWhileOnBench" name="upskillingWhileOnBench" required>
+          </td>
+        </tr>
+        <br>
+        <br>
+        <tr>
+          <th>Current initiative involved in *</th>
+          <th>Any work done in last 3 month (hands on)? *</th>
+          <th>Is the person reachable *</th>
+          <th>BTO (Average for Q3)_Attendance *</th>
+          <th>Sapience avg for last 3 months *</th>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.currentInitiativeInvolvedIn" name="currentInitiativeInvolvedIn" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.workDoneLast3Months" name="workDoneLast3Months" required>
+          </td>
+          <td>
+            <input type="email" [(ngModel)]="newCandidate.personReachable" name="personReachable" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.btoAverageQ3Attendance" name="btoAverageQ3Attendance" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.sapienceAvgLast3Months" name="sapienceAvgLast3Months" required>
+          </td>
+        </tr>
+        <br>
+        <br>
+        <tr>
+          <th>Leave balance *</th>
+          <th>Amount of leave applied in last 3 month *</th>
+          <th>BOTP Status *</th>
+          <th>Sub-Status *</th>
+          <th>College *</th>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.leaveBalance" name="leaveBalance" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.leaveAppliedLast3Months" name="leaveAppliedLast3Months" required>
+          </td>
+          <td>
+            <input type="email" [(ngModel)]="newCandidate.botpStatus" name="botpStatus" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.subStatus" name="subStatus" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.college" name="college" required>
+          </td>
+        </tr>
+        <br>
+        <br>
+        <tr>
+          <th>College Type *</th>
+          <th>Education *</th>
+          <th>Recruitment SWAR Score *</th>
+          <th>Recruitment Aptitude Score *</th>
+          <th>Recruitment Coding score *</th>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.collegeType" name="collegeType" required>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="newCandidate.education" name="education" required>
+          </td>
+          <td>
+            <input type="number" [(ngModel)]="newCandidate.recruitmentSwarScore" name="recruitmentSwarScore" required>
+          </td>
+          <td>
+            <input type="number" [(ngModel)]="newCandidate.recruitmentAptitudeScore" name="recruitmentAptitudeScore" required>
+          </td>
+          <td>
+            <input type="number" [(ngModel)]="newCandidate.recruitmentCodingScore" name="recruitmentCodingScore" required>
+          </td>
+        </tr>
+      </table>
+      <button class="add-button" type="submit" (click)="addCandidate()">Add Candidate</button> &nbsp;
+    </form>
 </div>
+

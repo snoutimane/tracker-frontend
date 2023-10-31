@@ -118,36 +118,36 @@ ngOnInit(): void {}
   }
 
 
-  deleteCandidate(candidate: Interview) {
-    const empId = candidate.empId; // Get the empId of the candidate you want to delete
-    const projectCode=candidate.projectCode;
-    console.log('EmpId:', empId);
-    console.log('ProjectCode:', projectCode);
-    // Make an HTTP DELETE request with the correct URL
-    this.http.delete(`http://localhost:8089/interviews/delete/${empId}/${projectCode}`, { responseType: 'text' })
-      .subscribe(
-        (response) => {
-          console.log('Delete response:', response);
+  // deleteCandidate(candidate: Interview) {
+  //   const empId = candidate.empId; // Get the empId of the candidate you want to delete
+    
+  //   console.log('EmpId:', empId);
+    
+  //   // Make an HTTP DELETE request with the correct URL
+  //   this.http.delete(`http://localhost:8089/interviews/delete/${empId}/${projectCode}`, { responseType: 'text' })
+  //     .subscribe(
+  //       (response) => {
+  //         console.log('Delete response:', response);
 
-          if (response === 'Interview deleted successfully') {
-            // Show an alert
-            alert(`Candidate with empId ${empId} deleted successfully!`);
+  //         if (response === 'Interview deleted successfully') {
+  //           // Show an alert
+  //           alert(`Candidate with empId ${empId} deleted successfully!`);
             
-            // Reload the current route
-            this.router.navigateByUrl('/view', { skipLocationChange: true }).then(() => {
-              this.router.navigate(['/view']);
-            });
-          } else {
-            console.error(`Error deleting candidate with empId ${empId} : Unexpected response`);
-            // Handle unexpected responses here
-          }
-        },
-        (error) => {
-          console.error(`Error deleting candidate with empId ${empId}`, error);
-          // Handle errors here
-        }
-      );
-  }
+  //           // Reload the current route
+  //           this.router.navigateByUrl('/view', { skipLocationChange: true }).then(() => {
+  //             this.router.navigate(['/view']);
+  //           });
+  //         } else {
+  //           console.error(`Error deleting candidate with empId ${empId} : Unexpected response`);
+  //           // Handle unexpected responses here
+  //         }
+  //       },
+  //       (error) => {
+  //         console.error(`Error deleting candidate with empId ${empId}`, error);
+  //         // Handle errors here
+  //       }
+  //     );
+  // }
 
 
 }
