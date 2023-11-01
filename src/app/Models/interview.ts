@@ -36,8 +36,4 @@ export class Interview {
     recruitmentSwarScore!: number;
     recruitmentAptitudeScore!: number;
     recruitmentCodingScore!: number;
-<<<<<<< HEAD
-    isEdit!:boolean;
-=======
->>>>>>> 74041e897c7c8cb1ae771ef989f8ed9181ecb687
 }

@@ -92,24 +92,6 @@ export class ViewCandidateComponent implements OnInit {
    this.checkData();
   }
 
-<<<<<<< HEAD
-  makeEditable(candidate:Interview){
-    candidate.isEdit=!candidate.isEdit;
-  }
-
-  //save button functionality
-  save(candidate:Interview){
-   this.makeEditable(candidate);
-    console.log("from frontend",candidate);
-    this.http.post('http://localhost:8089/interviews/create', candidate).subscribe(data=>{
-      alert("data updated Successfully");
-    },error=>console.log(error));
-    
-  
-  }
-
-=======
->>>>>>> 74041e897c7c8cb1ae771ef989f8ed9181ecb687
   checkData(){
     console.log("datadfsfh",this.filteredCandidates);
   
