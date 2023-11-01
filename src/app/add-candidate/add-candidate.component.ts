@@ -298,42 +298,42 @@ export class AddCandidateComponent {
   
       // Map the extracted data to the Interview class structure
       this.uploadedData = excelData.slice(1).map((row) => ({
-        empId: +row[0],
-        employeeName: row[1],
-        email: row[2],
-        baselineDate: new Date(), // Add default values or modify as needed
-        localGrade: '', // Add default values or modify as needed
-        currentDayStatus: '', // Add default values or modify as needed
-        mainProject: '', // Add default values or modify as needed
-        accountName: '', // Add default values or modify as needed
-        trainingBatchId: '', // Add default values or modify as needed
-        mentorName: row[3],
-        trainingScoreFeedback: '', // Add default values or modify as needed
-        bucket: '', // Add default values or modify as needed
-        qualitativeFeedback: row[4],
-        oceanAttemptedTillDate: row[5],
-        oceanScoreIfAttempted: +row[6],
-        hsCertificationDone: row[7],
-        digiDashboardUpdatedRegularly: new Date(row[8]),
-        accountShadowsDone: row[9],
-        currentStatus: row[10],
-        upskillingWhileOnBench: row[11],
-        currentInitiativeInvolvedIn: row[12],
-        workDoneLast3Months: row[13],
-        personReachable: row[14],
-        pscRemarks: row[15],
-        btoAverageQ3Attendance: row[16], // Update this accordingly
-        sapienceAvgLast3Months: +row[17],
-        leaveBalance: +row[18],
-        leaveAppliedLast3Months: +row[19],
-        botpStatus: row[20],
-        subStatus: row[21],
-        college: '', // Add default values or modify as needed
-        collegeType: '', // Add default values or modify as needed
-        education: '', // Add default values or modify as needed
-        recruitmentSwarScore: +row[22], // Update this accordingly
-        recruitmentAptitudeScore: +row[23], // Update this accordingly
-        recruitmentCodingScore: +row[24] // Update this accordingly
+        empId: row[1],
+        employeeName: row[2],
+        email: row[3],
+        baselineDate:row[0], // Add default values or modify as needed
+        localGrade:row[4], // Add default values or modify as needed
+        currentDayStatus:row[5], // Add default values or modify as needed
+        mainProject:row[6], // Add default values or modify as needed
+        accountName:row[7], // Add default values or modify as needed
+        trainingBatchId:row[8], // Add default values or modify as needed
+        mentorName: row[9],
+        trainingScoreFeedback: row[10], // Add default values or modify as needed
+        bucket:row[11], // Add default values or modify as needed
+        qualitativeFeedback: row[12],
+        oceanAttemptedTillDate: row[13],
+        oceanScoreIfAttempted: row[14],
+        hsCertificationDone: row[15],
+        digiDashboardUpdatedRegularly:row[16],
+        accountShadowsDone: row[17],
+        currentStatus: row[18],
+        upskillingWhileOnBench: row[19],
+        currentInitiativeInvolvedIn: row[20],
+        workDoneLast3Months: row[21],
+        personReachable: row[22],
+        pscRemarks: row[23],
+        btoAverageQ3Attendance: row[24], // Update this accordingly
+        sapienceAvgLast3Months: row[25],
+        leaveBalance: row[26],
+        leaveAppliedLast3Months: row[27],
+        botpStatus: row[28],
+        subStatus: row[29],
+        college:row[30], // Add default values or modify as needed
+        collegeType:row[31], // Add default values or modify as needed
+        education:row[32], // Add default values or modify as needed
+        recruitmentSwarScore: row[33], // Update this accordingly
+        recruitmentAptitudeScore: row[34], // Update this accordingly
+        recruitmentCodingScore: row[35] // Update this accordingly
       }));
     };
   

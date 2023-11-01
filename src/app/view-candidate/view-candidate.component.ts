@@ -6,7 +6,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { EditModalComponent } from '../edit-modal/edit-modal.component';
+//import { EditModalComponent } from '../edit-modal/edit-modal.component';
  
  
 // interface Interview {

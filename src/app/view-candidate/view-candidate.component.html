@@ -115,7 +115,6 @@
         <th>Emp Id</th>
         <th>Emp Name</th>
         <th class="sticky-column">E-mail</th>
-       
         <th>Local Grade</th>
         <th>Current Day Status</th>
         <th>Main Project</th>
@@ -330,6 +329,10 @@
             <input *ngIf="candidate.isEdit" name="education" id="education" [(ngModel)]="candidate.education" >
            </td>
            <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.recruitmentSwarScore}}</span>
+            <input *ngIf="candidate.isEdit" name="recruitmentSwarScore" id="recruitmentSwarScore" [(ngModel)]="candidate.recruitmentSwarScore" >
+           </td>
+           <td >
             <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.recruitmentAptitudeScore}}</span>
             <input *ngIf="candidate.isEdit" name="recruitmentAptitudeScore" id="recruitmentAptitudeScore" [(ngModel)]="candidate.recruitmentAptitudeScore" >
            </td>
@@ -337,13 +340,10 @@
             <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.recruitmentCodingScore}}</span>
             <input *ngIf="candidate.isEdit" name="recruitmentCodingScore" id="recruitmentCodingScore" [(ngModel)]="candidate.recruitmentCodingScore" >
            </td>
- 
- 
- 
-        <td>
-          <!-- <button class="edit-button" (click)="openEditDialog()">Edit</button> -->
-          <button id="delete" (click)="deleteCandidate(candidate)">Delete</button>
-        </td>
+           <td>
+            <!-- <button class="edit-button" (click)="openEditDialog()">Edit</button> -->
+            <button id="delete" (click)="deleteCandidate(candidate)">Delete</button>
+          </td>
       </tr>
     </tbody>
   </table>
