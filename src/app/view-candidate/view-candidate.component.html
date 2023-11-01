@@ -1,0 +1,369 @@
+<!-- <div class="container">
+  <app-dashboard></app-dashboard>
+  <h2>View Candidate</h2>
+ 
+  <div class="input-group mb-3">
+    <input type="text" class="form-control py-2 border-right-0" [(ngModel)]="searchText" placeholder="Search Candidates" (input)="onSearchTextChange()" />
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary border-left-0" (click)="clearSearch()">
+        <i class="fas fa-times"></i> Clear
+      </button>
+    </div>
+  </div>
+ 
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Emp Id</th>
+        <th>Emp Name</th>
+        <th class="sticky-column">E-mail</th>
+        <th>Project Name</th>
+        <th>Project Code</th>
+        <th>Project Manager</th>
+        <th>Project Location</th>
+        <th>Interviewed</th>
+        <th>Interview Date</th>
+        <th>Feedback</th>
+        <th>Feedback Description</th>
+        <th>Comments</th>
+        <th>Feedback Attachment</th>
+        <th>Proposed Date</th>
+        <th>Mentor Name</th>
+        <th>Status</th>
+        <th>Edit/Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let candidate of filteredCandidates">
+        <td (dblclick)="editCell(candidate)">
+          <span *ngIf="!candidate.isEditing">{{ candidate.empId }}</span>
+          <input
+            *ngIf="candidate.isEditing"
+            [(ngModel)]="editedValue"
+            (blur)="saveEditedValue(candidate)"
+          />
+        </td>
+        <td>{{candidate.employeeName}}</td>
+        <td class="sticky-column">{{ candidate.email }}</td>
+        <td>{{ candidate.projectName }}</td>
+        <td>{{ candidate.projectCode }}</td>
+        <td>{{ candidate.projectManager }}</td>
+        <td>{{ candidate.projectLocation }}</td>
+        <td>{{ candidate.interviewed }}</td>
+        <td>{{ candidate.interviewDate }}</td>
+        <td>{{ candidate.feedback }}</td>
+        <td>{{ candidate.feedbackDescription }}</td>
+        <td>{{ candidate.comment }}</td>
+        <td>
+         
+          <button *ngIf="candidate.image" class="view-attachment-button" (click)="openAttachmentModal(candidate.image)">
+            Open
+          </button>
+        </td>
+        <td>{{ candidate.proposedDate }}</td>
+        <td>{{ candidate.mentorName }}</td>
+       
+        <td>{{ candidate.status }}</td>
+        <td>
+          <button class="edit-button" (click)="openEditDialog()">Edit</button>
+          <button id="delete" (click)="deleteCandidate(candidate)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+ 
+<div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': showAttachmentModal}" [style.display]="showAttachmentModal ? 'block' : 'none'">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Attachment</h5>
+        <button type="button" class="close" (click)="closeAttachment()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+        <iframe [src]="selectedAttachment" width="100%" height="500px"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+ 
+<div class="modal-backdrop fade" [class.show]="showAttachmentModal"></div> -->
+ 
+ 
+ 
+<div class="container">
+  <app-dashboard></app-dashboard>
+  <h2>View Candidate</h2>
+ 
+  <div class="input-group mb-3">
+    <input type="text" class="form-control py-2 border-right-0" [(ngModel)]="searchText" placeholder="Search Candidates" (input)="onSearchTextChange()" />
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary border-left-0" (click)="clearSearch()">
+        <i class="fas fa-times"></i> Clear
+      </button>
+    </div>
+  </div>
+ 
+  <table class="table">
+    <thead>
+      <tr>
+        <th>BaseLine Date</th>
+        <th>Emp Id</th>
+        <th>Emp Name</th>
+        <th class="sticky-column">E-mail</th>
+       
+        <th>Local Grade</th>
+        <th>Current Day Status</th>
+        <th>Main Project</th>
+        <th>Account Name</th>
+        <th>Training Batch Id</th>
+        <th>Mentor Name</th>
+        <th>Training Score Feedback</th>
+        <th>Bucket</th>
+        <th>Qualitative Feedback</th>
+        <th>Ocean Attempted Till Date</th>
+        <th>Ocean Score If Attempted</th>
+        <th>HS Certification Done</th>
+        <th>Digi Dashboard Updated Regularly</th>
+        <th>Account Shadows Done</th>
+        <th>Current Status</th>
+        <th>Upskilling While On Bench</th>
+        <th>Current Initiative Involved In</th>
+        <th>Work Done Last 3 Months</th>
+        <th>Person Reachable</th>
+        <th>PSC Remarks</th>
+        <th>BTO (Average for Q3) Attendance</th>
+        <th>Sapience Avg for Last 3 Months</th>
+        <th>Leave Balance</th>
+        <th>Amount of Leave Applied in Last 3 Months</th>
+        <th>BOTP Status</th>
+        <th>Sub-Status</th>
+        <th>College</th>
+        <th>College Type</th>
+        <th>Education</th>
+        <th>Recruitment Swar Score</th>
+        <th>Recruitment Aptitude Score</th>
+        <th>Recruitment Coding Score</th>
+        <th>Edit/Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let candidate of filteredCandidates">
+        <!-- <td>{{ candidate.empId }}</td>
+        <td>{{ candidate.employeeName }}</td>
+        <td class="sticky-column">{{ candidate.email }}</td>
+        <td>{{ candidate.baselineDate }}</td>
+        <td>{{ candidate.localGrade }}</td>
+        <td>{{ candidate.currentDayStatus }}</td>
+        <td>{{ candidate.mainProject }}</td>
+        <td>{{ candidate.accountName }}</td>
+        <td>{{ candidate.trainingBatchId }}</td>
+        <td>{{ candidate.mentorName }}</td>
+        <td>{{ candidate.trainingScoreFeedback }}</td>
+        <td>{{ candidate.bucket }}</td>
+        <td>{{ candidate.qualitativeFeedback }}</td>
+        <td>{{ candidate.oceanAttemptedTillDate }}</td>
+        <td>{{ candidate.oceanScoreIfAttempted }}</td>
+        <td>{{ candidate.hsCertificationDone }}</td>
+        <td>{{ candidate.digiDashboardUpdatedRegularly }}</td>
+        <td>{{ candidate.accountShadowsDone }}</td>
+        <td>{{ candidate.currentStatus }}</td>
+        <td>{{ candidate.upskillingWhileOnBench }}</td>
+        <td>{{ candidate.currentInitiativeInvolvedIn }}</td>
+        <td>{{ candidate.workDoneLast3Months }}</td>
+        <td>{{ candidate.personReachable }}</td>
+        <td>{{ candidate.pscRemarks }}</td>
+        <td>{{ candidate.btoAverageQ3Attendance }}</td>
+        <td>{{ candidate.sapienceAvgLast3Months }}</td>
+        <td>{{ candidate.leaveBalance }}</td>
+        <td>{{ candidate.leaveAppliedLast3Months }}</td>
+        <td>{{ candidate.botpStatus }}</td>
+        <td>{{ candidate.subStatus }}</td>
+        <td>{{ candidate.college }}</td>
+        <td>{{ candidate.collegeType }}</td>
+        <td>{{ candidate.education }}</td>
+        <td>{{ candidate.recruitmentSwarScore }}</td>
+        <td>{{ candidate.recruitmentAptitudeScore }}</td>
+        <td>{{ candidate.recruitmentCodingScore }}</td> -->
+ 
+        <!-- <tr *ngFor="let candidate of filteredCandidates"> -->
+          <td  >
+           <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.baselineDate}}</span>
+           <input *ngIf="candidate.isEdit" name="baselineDate" id="baselineDate" [(ngModel)]="candidate.baselineDate" >
+          </td>
+         
+          <!-- <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.id}}</span>
+            <input *ngIf="candidate.isEdit" name="id" id="id" [(ngModel)]="candidate.id" >
+           </td> -->
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.empId}}</span>
+            <input *ngIf="candidate.isEdit" name="empId" id="empId" [(ngModel)]="candidate.empId" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.employeeName}}</span>
+            <input *ngIf="candidate.isEdit" name="employeeName" id="employeeName" [(ngModel)]="candidate.employeeName" >
+           </td>
+           <td class="sticky-column" >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.email}}</span>
+            <input *ngIf="candidate.isEdit" name="email" id="email" [(ngModel)]="candidate.email" >
+            <button *ngIf="candidate.isEdit" type="submit" (click)="save(candidate)">Save</button>
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.localGrade}}</span>
+            <input *ngIf="candidate.isEdit" name="localGrade" id="localGrade" [(ngModel)]="candidate.localGrade" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.currentDayStatus}}</span>
+            <input *ngIf="candidate.isEdit" name="currentDayStatus" id="currentDayStatus" [(ngModel)]="candidate.currentDayStatus" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.mainProject}}</span>
+            <input *ngIf="candidate.isEdit" name="mainProject" id="mainProject" [(ngModel)]="candidate.mainProject" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.accountName}}</span>
+            <input *ngIf="candidate.isEdit" name="accountName" id="accountName" [(ngModel)]="candidate.accountName" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.trainingBatchId}}</span>
+            <input *ngIf="candidate.isEdit" name="trainingBatchId" id="trainingBatchId" [(ngModel)]="candidate.trainingBatchId" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.mentorName}}</span>
+            <input *ngIf="candidate.isEdit" name="mentorName" id="mentorName" [(ngModel)]="candidate.mentorName" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.trainingScoreFeedback}}</span>
+            <input *ngIf="candidate.isEdit" name="trainingScoreFeedback" id="trainingScoreFeedback" [(ngModel)]="candidate.trainingScoreFeedback" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.bucket}}</span>
+            <input *ngIf="candidate.isEdit" name="bucket" id="bucket" [(ngModel)]="candidate.bucket" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.qualitativeFeedback}}</span>
+            <input *ngIf="candidate.isEdit" name="qualitativeFeedback" id="qualitativeFeedback" [(ngModel)]="candidate.qualitativeFeedback" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.oceanAttemptedTillDate}}</span>
+            <input *ngIf="candidate.isEdit" name="oceanAttemptedTillDate" id="oceanAttemptedTillDate" [(ngModel)]="candidate.oceanAttemptedTillDate" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.oceanScoreIfAttempted}}</span>
+            <input *ngIf="candidate.isEdit" name="oceanScoreIfAttempted" id="oceanScoreIfAttempted" [(ngModel)]="candidate.oceanScoreIfAttempted" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.hsCertificationDone}}</span>
+            <input *ngIf="candidate.isEdit" name="hsCertificationDone" id="hsCertificationDone" [(ngModel)]="candidate.hsCertificationDone" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.digiDashboardUpdatedRegularly}}</span>
+            <input *ngIf="candidate.isEdit" name="digiDashboardUpdatedRegularly" id="digiDashboardUpdatedRegularly" [(ngModel)]="candidate.digiDashboardUpdatedRegularly" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.accountShadowsDone}}</span>
+            <input *ngIf="candidate.isEdit" name="accountShadowsDone" id="accountShadowsDone" [(ngModel)]="candidate.accountShadowsDone" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.currentStatus}}</span>
+            <input *ngIf="candidate.isEdit" name="currentStatus" id="currentStatus" [(ngModel)]="candidate.currentStatus" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.upskillingWhileOnBench}}</span>
+            <input *ngIf="candidate.isEdit" name="upskillingWhileOnBench" id="upskillingWhileOnBench" [(ngModel)]="candidate.upskillingWhileOnBench" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.currentInitiativeInvolvedIn}}</span>
+            <input *ngIf="candidate.isEdit" name="currentInitiativeInvolvedIn" id="currentInitiativeInvolvedIn" [(ngModel)]="candidate.currentInitiativeInvolvedIn" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.workDoneLast3Months}}</span>
+            <input *ngIf="candidate.isEdit" name="workDoneLast3Months" id="workDoneLast3Months" [(ngModel)]="candidate.workDoneLast3Months" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.personReachable}}</span>
+            <input *ngIf="candidate.isEdit" name="personReachable" id="personReachable" [(ngModel)]="candidate.personReachable" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.pscRemarks}}</span>
+            <input *ngIf="candidate.isEdit" name="pscRemarks" id="pscRemarks" [(ngModel)]="candidate.pscRemarks" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.btoAverageQ3Attendance}}</span>
+            <input *ngIf="candidate.isEdit" name="btoAverageQ3Attendance" id="btoAverageQ3Attendance" [(ngModel)]="candidate.btoAverageQ3Attendance" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.sapienceAvgLast3Months}}</span>
+            <input *ngIf="candidate.isEdit" name="sapienceAvgLast3Months" id="sapienceAvgLast3Months" [(ngModel)]="candidate.sapienceAvgLast3Months" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.leaveBalance}}</span>
+            <input *ngIf="candidate.isEdit" name="leaveBalance" id="leaveBalance" [(ngModel)]="candidate.leaveBalance" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.leaveAppliedLast3Months}}</span>
+            <input *ngIf="candidate.isEdit" name="leaveAppliedLast3Months" id="leaveAppliedLast3Months" [(ngModel)]="candidate.leaveAppliedLast3Months" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.botpStatus}}</span>
+            <input *ngIf="candidate.isEdit" name="botpStatus" id="botpStatus" [(ngModel)]="candidate.botpStatus" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.subStatus}}</span>
+            <input *ngIf="candidate.isEdit" name="subStatus" id="subStatus" [(ngModel)]="candidate.subStatus" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.college}}</span>
+            <input *ngIf="candidate.isEdit" name="college" id="college" [(ngModel)]="candidate.college" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.collegeType}}</span>
+            <input *ngIf="candidate.isEdit" name="collegeType" id="collegeType" [(ngModel)]="candidate.collegeType" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.education}}</span>
+            <input *ngIf="candidate.isEdit" name="education" id="education" [(ngModel)]="candidate.education" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.recruitmentAptitudeScore}}</span>
+            <input *ngIf="candidate.isEdit" name="recruitmentAptitudeScore" id="recruitmentAptitudeScore" [(ngModel)]="candidate.recruitmentAptitudeScore" >
+           </td>
+           <td >
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.recruitmentCodingScore}}</span>
+            <input *ngIf="candidate.isEdit" name="recruitmentCodingScore" id="recruitmentCodingScore" [(ngModel)]="candidate.recruitmentCodingScore" >
+           </td>
+ 
+ 
+ 
+        <td>
+          <!-- <button class="edit-button" (click)="openEditDialog()">Edit</button> -->
+          <button id="delete" (click)="deleteCandidate(candidate)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+ 
+<!-- <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': showAttachmentModal}" [style.display]="showAttachmentModal ? 'block' : 'none'">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Attachment</h5>
+        <button type="button" class="close" (click)="closeAttachment()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+        <iframe [src]="selectedAttachment" width="100%" height="500px"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<div class="modal-backdrop fade" [class.show]="showAttachmentModal"></div> -->

@@ -1,0 +1,52 @@
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 237px;
+    background-image: url('src/assets/bgImage-Login.jpg')
+   
+}
+h2 {
+    text-align: center;
+}
+p {
+
+    text-align: center;
+    font-size: 60px;
+}
+.link-container {
+    text-align: center;
+    margin-top: 30px;
+    padding: 10px 20px; /* Add padding to the buttons for spacing */
+    margin: 5px;
+}
+ a {
+    text-decoration: none;
+    padding: 20px 20px;
+    font-size: 20px;
+     
+    /* color: #fff;
+    border-radius: 3px;   */
+    /* border-color: #090101; */
+    
+}
+button{
+    padding: 10px 20px; /* Add padding to the buttons for spacing */
+    margin: 5px; /* Add margin to create space between buttons */
+    font-size: 16px; /* Optional: Adjust the font size */
+    background-color: #007BFF; /* Button background color */
+    color: #fff; /* Text color */
+    border: none; /* Remove button borders */
+    border-radius: 5px; /* Add border-radius for rounded corners (optional) */
+    cursor: pointer;
+}
+a:hover {
+    background-color: #78a5d6;
+}
+
+
+

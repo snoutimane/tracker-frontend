@@ -1,0 +1,33 @@
+<div class="registration-form">
+    <form class="form-horizontal" action="" method="POST">
+        <fieldset>
+            <div id="legend">
+                <legend class="text-bold">Register</legend>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="username">Username</label>
+                <div class="controls">
+                    <input type="text" id="username" name="username" placeholder="Enter Username" class="input-xsmall" [(ngModel)]="user.username" required>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password">Password</label>
+                <div class="controls">
+                    <input type="password" id="password" name="password" placeholder="Enter password" class="input-xsmall" [(ngModel)]="user.password" required>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password_confirm">Confirm Password</label>
+                <div class="controls">
+                    <input type="password" id="password_confirm" name="password_confirm" placeholder="Enter Confirm password" class="input-xsmall">
+                </div>
+            </div>
+            <div class="control-group">
+                <!-- Button -->
+                <div class="controls">
+                    <button class="btn btn-success">Register</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

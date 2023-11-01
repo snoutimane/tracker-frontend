@@ -1,0 +1,100 @@
+/* Sticky columns */
+.sticky-column {
+  position: sticky;
+  left: 0;
+  background-color: #f2f2f2;
+  z-index: 1; /* Ensure the first sticky column has the lowest z-index */
+}
+
+/* Style the container */
+.container {
+  display:inline-block;
+}
+
+/* Style the table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Style the table header */
+.table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: left;
+  padding: 12px; /* Increased padding for better readability */
+  border: 1px solid #ddd;
+}
+
+/* Style the table rows */
+.table td {
+  padding: 12px; /* Increased padding for better readability */
+  border: 1px solid #ddd;
+}
+
+/* Style alternate rows with a different background color */
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Hover effect on rows */
+.table tbody tr:hover {
+  background-color: #ddd;
+}
+
+/* View attachment button styles */
+.view-attachment-button {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease; /* Smooth transition effect */
+}
+
+.view-attachment-button:hover {
+  color: darkblue;
+}
+
+/* Styles for the modal */
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1040; /* Ensure the modal is above other elements */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background overlay */
+  opacity: 0; /* Initially hidden */
+  pointer-events: none; /* Initially hidden, but allows clicks on modal when shown */
+  transition: opacity 0.3s ease;
+}
+
+/* Show the modal */
+.modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Style for the modal content */
+.modal-content {
+  border-radius: 10px;
+  width: 70%; /* Set the width to 70% of the screen */
+  margin: 0 auto; /* Center horizontally */
+  max-height: 70vh; /* Set the maximum height to 70% of the viewport height */
+  /* overflow-y: auto; Add a vertical scrollbar if content exceeds the maximum height */
+  z-index: 1050; 
+}
+
+/* Style for the modal body (adjust as needed) */
+.modal-body {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Style for the modal footer (adjust as needed) */
+.modal-footer {
+  justify-content: center;
+}
