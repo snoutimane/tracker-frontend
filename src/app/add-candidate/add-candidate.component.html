@@ -161,7 +161,17 @@
             </div> -->
           </td>
           <td>
-            <input type="text" [(ngModel)]="newCandidate.mentorName" name="mentorName" required>
+            <select [(ngModel)]="newCandidate.mentorName" name="mentorName" required style="width: 160px; height: 20px;">
+              <option value="Samruddhi">Samruddhi</option>
+              <option value="Amit">Amit</option>
+              <option value="Rashmi">Rashmi</option>
+              <option value="Snehal">Snehal</option>
+              <option value="Sasirekha">Sasirekha</option>
+              <option value="Shankar">Shankar</option>
+              <option value="Shanmugapriya">Shanmugapriya</option>
+              <option value="Shilpa">Shilpa</option>
+              <!-- Add more options as needed -->
+            </select>
           </td>
           <td>
             <input type="number" [(ngModel)]="newCandidate.empId" name="empId" required>
@@ -189,7 +199,7 @@
             <input type="text" [(ngModel)]="newCandidate.localGrade" name="localGrade" required>
           </td>
           <td>
-            <input type="text" [(ngModel)]="newCandidate.currentDayStatus" name="currentDayStatus" required>
+            <input type="text" [(ngModel)]="newCandidate.currentDayStatus" name="currentDayStatus">
           </td>
           <td>
             <input type="text" [(ngModel)]="newCandidate.mainProject" name="mainProject" required>
@@ -212,16 +222,40 @@
         </tr>
         <tr>
           <td>
-            <input type="text" [(ngModel)]="newCandidate.trainingScoreFeedback" name="trainingScoreFeedback" required>
+            <select [(ngModel)]="newCandidate.trainingScoreFeedback" name="trainingScoreFeedback" required style="width: 160px; height: 20px;">
+              <option value="Below Average">Below Average</option>
+              <option value="Average">Average</option>
+              <option value="Above Average">Above Average</option>
+              <option value="Good">Good</option>
+              <option value="Excellent">Excellent</option>
+              <option value="Resigned">Resigned</option>
+              <option value="Deployed">Deployed</option>
+              <option value="Other">Other</option>
+            </select>
           </td>
           <td>
-            <input type="text" [(ngModel)]="newCandidate.bucket" name="bucket" required>
+            <select [(ngModel)]="newCandidate.trainingScoreFeedback" name="trainingScoreFeedback" required style="width: 160px; height: 20px;">
+              <option value="5-10">5-10</option>
+              <option value="10-20">10-20</option>
+              <option value="20-30">20-30</option>
+              <option value="30-40">30-40</option>
+              <option value="40-50">40-50</option>
+              <option value="50-60">50-60</option>
+              <option value="60-70">60-70</option>
+              <option value="70-80">70-80</option>
+              <option value="80-90">80-90</option>
+              <option value="90-100">90-100</option>
+            </select>
           </td>
           <td>
             <input type="text" [(ngModel)]="newCandidate.qualitativeFeedback" name="qualitativeFeedback" required>
           </td>
           <td>
-            <input type="text" [(ngModel)]="newCandidate.oceanAttemptedTillDate" name="oceanAttemptedTillDate" required>
+            <select [(ngModel)]="newCandidate.oceanAttemptedTillDate" name="oceanAttemptedTillDate" required style="width: 160px; height: 20px;">
+              <option value="Level 0">Level 0</option>
+              <option value="Level 1">Level 1</option>
+              <option value="Level 2">Level 2</option>
+            </select>
           </td>
           <td>
             <input type="number" [(ngModel)]="newCandidate.oceanScoreIfAttempted" name="oceanScoreIfAttempted" required>
@@ -270,13 +304,16 @@
             <input type="text" [(ngModel)]="newCandidate.workDoneLast3Months" name="workDoneLast3Months" required>
           </td>
           <td>
-            <input type="email" [(ngModel)]="newCandidate.personReachable" name="personReachable" required>
+            <select [(ngModel)]="newCandidate.personReachable" name="personReachable" required style="width: 160px; height: 20px;">
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
           </td>
           <td>
             <input type="text" [(ngModel)]="newCandidate.btoAverageQ3Attendance" name="btoAverageQ3Attendance" required>
           </td>
           <td>
-            <input type="text" [(ngModel)]="newCandidate.sapienceAvgLast3Months" name="sapienceAvgLast3Months" required>
+            <input type="number" [(ngModel)]="newCandidate.sapienceAvgLast3Months" name="sapienceAvgLast3Months" required>
           </td>
         </tr>
         <br>
@@ -290,10 +327,10 @@
         </tr>
         <tr>
           <td>
-            <input type="text" [(ngModel)]="newCandidate.leaveBalance" name="leaveBalance" required>
+            <input type="number" [(ngModel)]="newCandidate.leaveBalance" name="leaveBalance" required>
           </td>
           <td>
-            <input type="text" [(ngModel)]="newCandidate.leaveAppliedLast3Months" name="leaveAppliedLast3Months" required>
+            <input type="number" [(ngModel)]="newCandidate.leaveAppliedLast3Months" name="leaveAppliedLast3Months" required>
           </td>
           <td>
             <input type="email" [(ngModel)]="newCandidate.botpStatus" name="botpStatus" required>

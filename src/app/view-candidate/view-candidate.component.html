@@ -147,7 +147,7 @@
         <th>Recruitment Swar Score</th>
         <th>Recruitment Aptitude Score</th>
         <th>Recruitment Coding Score</th>
-        <th>Edit/Delete</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -191,7 +191,7 @@
  
         <!-- <tr *ngFor="let candidate of filteredCandidates"> -->
           <td  >
-           <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.baselineDate}}</span>
+           <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.baselineDate | date:'yyyy-MM-dd'}}</span>
            <input *ngIf="candidate.isEdit" name="baselineDate" id="baselineDate" [(ngModel)]="candidate.baselineDate" >
           </td>
          
@@ -261,7 +261,7 @@
             <input *ngIf="candidate.isEdit" name="hsCertificationDone" id="hsCertificationDone" [(ngModel)]="candidate.hsCertificationDone" >
            </td>
            <td >
-            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.digiDashboardUpdatedRegularly}}</span>
+            <span (click)="makeEditable(candidate)" *ngIf="!candidate.isEdit" >{{candidate.digiDashboardUpdatedRegularly | date:'yyyy-MM-dd'}}</span>
             <input *ngIf="candidate.isEdit" name="digiDashboardUpdatedRegularly" id="digiDashboardUpdatedRegularly" [(ngModel)]="candidate.digiDashboardUpdatedRegularly" >
            </td>
            <td >

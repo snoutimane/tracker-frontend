@@ -52,26 +52,29 @@ export class ViewCandidateComponent implements OnInit {
  
   filterCandidates() {
     console.log('Filtering candidates. Search Text:', this.searchText);
-   
+  
     if (!this.searchText || this.searchText.trim() === '') {
       // If search text is empty, show all candidates
       this.filteredCandidates = this.candidates;
     } else {
       // Filter candidates based on search text
       this.filteredCandidates = this.candidates.filter((candidate) => {
+        // Check if employeeName is not null or undefined before calling toLowerCase()
+        const employeeName = candidate.employeeName ? candidate.employeeName.toLowerCase() : '';
         // You can customize this condition to search in specific fields
         return (
-          candidate.employeeName.toLowerCase().includes(this.searchText.toLowerCase()) ||
-          candidate.email.toLowerCase().includes(this.searchText.toLowerCase())
+          employeeName.includes(this.searchText.toLowerCase()) ||
+          (candidate.email && candidate.email.toLowerCase().includes(this.searchText.toLowerCase()))
           // Add more fields as needed
           // ...
         );
       });
     }
- 
+  
     // Log the filtered candidates for debugging
     console.log('Filtered Candidates:', this.filteredCandidates);
   }
+  
  
   clearSearch() {
     this.searchText = '';
